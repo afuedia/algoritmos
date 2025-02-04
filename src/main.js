@@ -1,9 +1,179 @@
 //Manejo del escritorio
 
+const funciones = {
+  evenSteven: function () {
+    return crearInterfaz("EvenSteven", "Ingrese un número");
+  },
+  reverseWizard: function () {
+    return crearInterfaz("Reverse Wizard", "Ingrese un texto");
+  },
+  maxFinder: function () {
+    return crearInterfaz(
+      "MaxFinder",
+      "Ingrese una lista de números separados por comas",
+      "maximo"
+    );
+  },
+  factorialFactory: function () {
+    return crearInterfaz("Factorial Factory", "Ingrese un número", "factorial");
+  },
+  palindromePal: function () {
+    return crearInterfaz(
+      "Palindrome Pal",
+      "Ingrese una palabra o frase",
+      "palindromo"
+    );
+  },
+  fiboGen: function () {
+    return crearInterfaz(
+      "Fibonacci Generator",
+      "Ingrese un número de términos",
+      "fibonacci"
+    );
+  },
+  sortItOut: function () {
+    return crearInterfaz(
+      "Sort It Out",
+      "Ingrese una lista de números separados por comas",
+      "ordenar"
+    );
+  },
+  charCounter: function () {
+    return crearInterfaz(
+      "Character Counter",
+      "Ingrese un texto",
+      "contarCaracteres"
+    );
+  },
+  leapYearChecker: function () {
+    return crearInterfaz("Leap Year Checker", "Ingrese un año", "esBisiesto");
+  },
+  tempSwitch: function () {
+    return crearInterfaz(
+      "Temperature Switch",
+      "Ingrese temperatura en °C o °F",
+      "convertirTemperatura"
+    );
+  },
+  secondBest: function () {
+    return crearInterfaz(
+      "Second Best",
+      "Ingrese una lista de números",
+      "segundoMayor"
+    );
+  },
+  duplicateDestroyer: function () {
+    return crearInterfaz(
+      "Duplicate Destroyer",
+      "Ingrese una lista de elementos",
+      "eliminarDuplicados"
+    );
+  },
+  arrayAdder: function () {
+    return crearInterfaz(
+      "Array Adder",
+      "Ingrese una lista de números",
+      "sumarArray"
+    );
+  },
+  anagramAnalyzer: function () {
+    return crearInterfaz(
+      "Anagram Analyzer",
+      "Ingrese dos palabras",
+      "esAnagrama"
+    );
+  },
+  primeTime: function () {
+    return crearInterfaz("Prime Time", "Ingrese un número", "esPrimo");
+  },
+  romanToArabic: function () {
+    return crearInterfaz(
+      "Roman to Arabic",
+      "Ingrese un número romano",
+      "romanoAarabigo"
+    );
+  },
+  balancedBrackets: function () {
+    return crearInterfaz(
+      "Balanced Brackets",
+      "Ingrese una secuencia de paréntesis",
+      "balanceado"
+    );
+  },
+  leetify: function () {
+    return crearInterfaz("Leetify", "Ingrese un texto", "convertirLeet");
+  },
+  centuryCalculator: function () {
+    return crearInterfaz("Century Calculator", "Ingrese un año", "siglo");
+  },
+  midnightMilliseconds: function () {
+    return crearInterfaz(
+      "Midnight Milliseconds",
+      "Ingrese una fecha y hora",
+      "milisegundosHastaMedianoche"
+    );
+  },
+};
+
+function parImpar(numero) {
+  if (numero % 2 === 0) {
+    return `El numero ${numero} es par`;
+  } else {
+    return `El numero ${numero} 
+  no es par`;
+  }
+}
+
+// Función para generar la estructura de las ventanas
+function crearInterfaz(titulo, placeholder) {
+  return `
+    <div class="encabezado">
+      <div class="titulo">
+        <p>${titulo}</p>
+      </div>
+      <div class="botonera">
+        <button class="botoncito" id="cerrar">x</button>
+      </div>
+    </div>
+    <div class="cuerpo">
+      <form id="formulario">
+        <label for="inputOne"></label>
+        <input type="text" id="inputOne" name="entrada" placeholder="${placeholder}" />
+        <button type="submit" id="botonEnviar">Enviar</button>
+      </form>
+      <p id="respuesta"></p>
+    </div>`;
+}
+
+function manejadora() {
+  let iconos = document.getElementsByClassName("icono");
+  const menu = document.getElementById("contenedorIconos");
+  for (let i = 0; i < iconos.length; i++) {
+    iconos[i].addEventListener("click", function () {
+      menu.classList.remove("contenedorIconosVisible");
+      menu.classList.add("contenedorIconos");
+      let nombrePrograma = this.id;
+      ventana.innerHTML = funciones[nombrePrograma]();
+      console.log(funciones[nombrePrograma]());
+      document.getElementById("cerrar").addEventListener("click", function () {
+        ventana.innerHTML = "";
+      });
+      document
+        .getElementById("formulario")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          let valor = document.getElementById("inputOne").value;
+          let respuesta = document.getElementById("respuesta");
+          respuesta.innerHTML = parImpar(valor);
+        });
+    });
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   const botonInicio = document.getElementById("inicio");
   const menu = document.getElementById("contenedorIconos");
-
+  manejadora();
   if (botonInicio && menu) {
     botonInicio.addEventListener("click", function (event) {
       event.stopPropagation(); // Evita que el clic se propague al documento
@@ -55,42 +225,6 @@ function openEvenSteven() {
 document.addEventListener("DOMContentLoaded", function () {
   const menu = document.getElementById("contenedorIconos");
   const ventana = document.getElementById("ventana");
-  manejadora();
-
-  function manejadora() {
-    let iconos = document.getElementsByClassName("icono");
-    for (let i = 0; i < iconos.length; i++) {
-      iconos[i].addEventListener("click", function () {
-        menu.classList.remove("contenedorIconosVisible");
-        menu.classList.add("contenedorIconos");
-        ventana.innerHTML = openEvenSteven(); //¿Como hago para que el bombre de "nombrePrograma" sea el de la función que ejecuta?
-        document
-          .getElementById("cerrar")
-          .addEventListener("click", function () {
-            ventana.innerHTML = "";
-          });
-        let nombrePrograma = this.id;
-        console.log(nombrePrograma);
-      });
-    }
-  }
-
-  document
-    .getElementById("parImparForm")
-    .addEventListener("submit", function (event) {
-      event.preventDefault();
-      let valor = document.getElementById("inputOne").value;
-      let respuesta = document.getElementById("respuesta");
-      respuesta.innerHTML = parImpar(valor);
-    });
-  function parImpar(numero) {
-    if (numero % 2 === 0) {
-      return `El numero ${numero} es par`;
-    } else {
-      return `El numero ${numero} 
-    no es par`;
-    }
-  }
 });
 // 2 - Crear un algoritmo que invierta un string.
 //Función que pinta en el HTML
