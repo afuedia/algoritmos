@@ -1,13 +1,212 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="/src/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Algoritmos</title>
   </head>
   <body>
-    <div id="app"></div>
+    <section class="escritorio">
+      <div class="fondoPantalla">
+        <div class="ventana" id="ventana"></div>
+        <div class="contenedorIconos" id="contenedorIconos">
+          <ul>
+            <li>
+              <button class="icono" id="EvenSteven-Boton">
+                <img src="/img/1.png" />
+                <p>EvenSteven</p>
+              </button>
+            </li>
+            <li>
+              <button class="icono" id="ReverseWizard-Boton">
+                <img src="/img/2.png" />
+                <p>ReverseWizard</p>
+              </button>
+            </li>
+            <li>
+              <button class="icono" id="MaxFinder-Boton">
+                <img src="/img/3.png" />
+                <p>MaxFinder</p>
+              </button>
+            </li>
+            <li>
+              <button class="icono" id="FactorialFactory-Boton">
+                <img src="/img/4.png" />
+                <p>FactorialFactory</p>
+              </button>
+            </li>
+            <li>
+              <button class="icono" id="PalindromePal-Boton">
+                <img src="/img/5.png" />
+                <p>PalindromePal</p>
+              </button>
+            </li>
+            <li>
+              <button class="icono" id="FiboGen-Boton">
+                <img src="/img/6.png" />
+                <p>FiboGen</p>
+              </button>
+            </li>
+            <li>
+              <button class="icono" id="SortItOut-Boton">
+                <img src="/img/7.png" />
+                <p>SortItOut</p>
+              </button>
+            </li>
+            <li>
+              <button class="icono" id="CharCounter-Boton">
+                <img src="/img/8.png" />
+                <p>CharCounter</p>
+              </button>
+            </li>
+            <li>
+              <button class="icono" id="LeapYearChecker-Boton">
+                <img src="/img/9.png" />
+                <p>LeapYearChecker</p>
+              </button>
+            </li>
+            <li>
+              <button class="icono" id="TempSwitch-Boton">
+                <img src="/img/10.png" />
+                <p>TempSwitch</p>
+              </button>
+            </li>
+            <li>
+              <button class="icono" id="SecondBest-Boton">
+                <img src="/img/11.png" />
+                <p>SecondBest</p>
+              </button>
+            </li>
+            <li>
+              <button class="icono" id="DuplicateDestroyer-Boton">
+                <img src="/img/12.png" />
+                <p>DuplicateDestroyer</p>
+              </button>
+            </li>
+            <li>
+              <button class="icono" id="ArrayAdder-Boton">
+                <img src="/img/13.png" />
+                <p>ArrayAdder</p>
+              </button>
+            </li>
+            <li>
+              <button class="icono" id="AnagramAnalyzer-Boton">
+                <img src="/img/14.png" />
+                <p>AnagramAnalyzer</p>
+              </button>
+            </li>
+            <li>
+              <button class="icono" id="PrimeTime-Boton">
+                <img src="/img/15.png" />
+                <p>PrimeTime</p>
+              </button>
+            </li>
+            <li>
+              <button class="icono" id="RomanToArabic-Boton">
+                <img src="/img/16.png" />
+                <p>RomanToArabic</p>
+              </button>
+            </li>
+            <li>
+              <button class="icono" id="BalancedBrackets-Boton">
+                <img src="/img/17.png" />
+                <p>BalancedBrackets</p>
+              </button>
+            </li>
+            <li>
+              <button class="icono" id="Leetify-Boton">
+                <img src="/img/18.png" />
+                <p>Leetify</p>
+              </button>
+            </li>
+            <li>
+              <button class="icono" id="CenturyCalculator-Boton">
+                <img src="/img/19.png" />
+                <p>CenturyCalculator</p>
+              </button>
+            </li>
+            <li>
+              <button class="icono" id="MidnightMilliseconds-Boton">
+                <img src="/img/20.png" />
+                <p>MidnightMilliseconds</p>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="barraInferior">
+        <button class="inicio" id="inicio">
+          <div class="cuadrito"></div>
+          <div class="cuadrito"></div>
+          <div class="cuadrito"></div>
+          <div class="cuadrito"></div>
+        </button>
+        <div></div>
+        <div class="cuandoEs">
+          <div class="hora">8:30</div>
+          <div class="fechaMundial">03/02/2025</div>
+        </div>
+      </div>
+    </section>
+    <!-- <section class="ventanas">
+       1  -  Escribir  una  función  que  determine  si  un  número  es  par  o impar.
+      <div class="ventana">
+        <div class="encabezado">
+          <div class="titulo">
+            <p>1 - Determinadora de numeros pares o impares</p>
+          </div>
+          <div class="botonera">
+            <div class="botoncito">_</div>
+            <div class="botoncito">[]</div>
+            <div class="botoncito">x</div>
+          </div>
+        </div>
+        <div class="cuerpo">
+          <form>
+            <label for="inputOne"></label>
+            <input
+              type="text"
+              id="inputOne"
+              name="numero"
+              placeholder="Ingrese un número"
+            />
+            <button id="botonEnviar">Enviar</button>
+          </form>
+          <p id="respuestaParImpar"></p>
+        </div>
+      </div>
+      <div class="explicacion"></div>
+      2 - Crear un algoritmo que invierta un string. 
+      <div class="ventana">
+        <div class="encabezado">
+          <div class="titulo">
+            <p>2 - Invertidora de textos</p>
+          </div>
+          <div class="botonera">
+            <div class="botoncito">_</div>
+            <div class="botoncito">[]</div>
+            <div class="botoncito">x</div>
+          </div>
+        </div>
+        <div class="cuerpo">
+          <form>
+            <label for="text"></label>
+            <input
+              type="text"
+              id="textoDerecho"
+              name="numero"
+              placeholder="Escriba algo"
+            />
+            <button id="botonEnviar">Enviar</button>
+          </form>
+          <p id="respuestaParImpar"></p>
+        </div>
+      </div>
+      <div class="explicacion"></div> 
+    </section>-->
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
