@@ -1,5 +1,7 @@
 //Manejo del escritorio
 
+// Fase 7 - Hacer el jugador en game.html draggable con interact
+
 const funciones = {
   evenSteven: function () {
     return crearInterfaz("EvenSteven", "Ingrese un número");
@@ -115,11 +117,149 @@ const funciones = {
   },
 };
 
-function parImpar(numero) {
-  if (numero % 2 === 0) {
+const algoritmos = {
+  evenSteven: function (input) {
+    //TODo Buscar la manera de que descarte cualquier cosa que no sea un numero
+    if (input % 2 === 0) {
+      return `El numero ${input} es par`;
+    } else {
+      return `El numero ${input} 
+    no es par`;
+    }
+  },
+  reverseWizard: function (input) {
+    let invertericion = input.split("").reverse().join("");
+    return invertericion;
+
+    //Convierto string en array: split(), invierte el orden del array: reverse(), convierte en string: join()
+  },
+  maxFinder: function () {
+    return crearInterfaz(
+      "MaxFinder",
+      "Ingrese una lista de números separados por comas",
+      "maximo"
+    );
+  },
+  // 4 - Crear un algoritmo que devuelva el factorial de un número.
+  factorialFactory: function (input) {
+    let factorial = 1;
+    for (let i = 2; i <= input; i++) {
+      factorial *= i;
+    }
+    return factorial;
+  },
+  palindromePal: function (input) {
+    if (input === input.split("").reverse()) {
+      return "Es palindromo";
+    } else {
+      return "No es palindromo";
+    }
+  },
+  fiboGen: function (input) {
+    if (input === 1) {
+      return 0;
+    } else if (input === 2) {
+      return 1;
+    } else {
+      let fibonazi = [];
+      fibonazi[0] = 0;
+      fibonazi[1] = 1;
+      for (let i = 2; i < input; i++) {
+        fibonazi[i] = fibonazi[i - 1] + fibonazi[i - 2];
+      }
+
+      return fibonazi[fibonazi.length - 1];
+    }
+  },
+  sortItOut: function () {
+    return crearInterfaz(
+      "Sort It Out",
+      "Ingrese una lista de números separados por comas",
+      "ordenar"
+    );
+  },
+  charCounter: function () {
+    return crearInterfaz(
+      "Character Counter",
+      "Ingrese un texto",
+      "contarCaracteres"
+    );
+  },
+  leapYearChecker: function () {
+    return crearInterfaz("Leap Year Checker", "Ingrese un año", "esBisiesto");
+  },
+  tempSwitch: function () {
+    return crearInterfaz(
+      "Temperature Switch",
+      "Ingrese temperatura en °C o °F",
+      "convertirTemperatura"
+    );
+  },
+  secondBest: function () {
+    return crearInterfaz(
+      "Second Best",
+      "Ingrese una lista de números",
+      "segundoMayor"
+    );
+  },
+  duplicateDestroyer: function () {
+    return crearInterfaz(
+      "Duplicate Destroyer",
+      "Ingrese una lista de elementos",
+      "eliminarDuplicados"
+    );
+  },
+  arrayAdder: function () {
+    return crearInterfaz(
+      "Array Adder",
+      "Ingrese una lista de números",
+      "sumarArray"
+    );
+  },
+  anagramAnalyzer: function () {
+    return crearInterfaz(
+      "Anagram Analyzer",
+      "Ingrese dos palabras",
+      "esAnagrama"
+    );
+  },
+  primeTime: function () {
+    return crearInterfaz("Prime Time", "Ingrese un número", "esPrimo");
+  },
+  romanToArabic: function () {
+    return crearInterfaz(
+      "Roman to Arabic",
+      "Ingrese un número romano",
+      "romanoAarabigo"
+    );
+  },
+  balancedBrackets: function () {
+    return crearInterfaz(
+      "Balanced Brackets",
+      "Ingrese una secuencia de paréntesis",
+      "balanceado"
+    );
+  },
+  leetify: function () {
+    return crearInterfaz("Leetify", "Ingrese un texto", "convertirLeet");
+  },
+  centuryCalculator: function () {
+    return crearInterfaz("Century Calculator", "Ingrese un año", "siglo");
+  },
+  midnightMilliseconds: function () {
+    return crearInterfaz(
+      "Midnight Milliseconds",
+      "Ingrese una fecha y hora",
+      "milisegundosHastaMedianoche"
+    );
+  },
+};
+
+function parImpar(input) {
+  if (input % 2 === 0) {
     return `El numero ${numero} es par`;
   } else {
-    return `El numero ${numero} 
+    return `El numero ${input} 
   no es par`;
   }
 }
@@ -154,7 +294,9 @@ function manejadora() {
       menu.classList.add("contenedorIconos");
       let nombrePrograma = this.id;
       ventana.innerHTML = funciones[nombrePrograma]();
+
       console.log(funciones[nombrePrograma]());
+
       document.getElementById("cerrar").addEventListener("click", function () {
         ventana.innerHTML = "";
       });
@@ -164,7 +306,7 @@ function manejadora() {
           event.preventDefault();
           let valor = document.getElementById("inputOne").value;
           let respuesta = document.getElementById("respuesta");
-          respuesta.innerHTML = parImpar(valor);
+          respuesta.innerHTML = parImpar(valor); // TODO Hacer que selecccione el algoritmo de forma dinámica algoritmos[nombrePrograma](valor)
         });
     });
   }
@@ -197,35 +339,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Lista de Algoritmos
 // 1  -  Escribir  una  función  que  determine  si  un  número  es  par  o impar.
-function openEvenSteven() {
-  return `
-  <div class="encabezado">
-      <div class="titulo">
-        <p>1 - Determinadora de numeros pares o impares</p>
-      </div>
-      <div class="botonera">
-        <button class="botoncito" id="cerrar">x</button>
-      </div>
-    </div>
-    <div class="cuerpo">
-      <form id="parImparForm">
-        <label for="inputOne"></label>
-        <input
-          type="text"
-          id="inputOne"
-          name="numero"
-          placeholder="Ingrese un número"
-        />
-        <button type="submit" id="botonEnviar">Enviar</button>
-      </form>
-      <p id="respuesta"></p>
-    </div>`;
-}
 
-document.addEventListener("DOMContentLoaded", function () {
-  const menu = document.getElementById("contenedorIconos");
-  const ventana = document.getElementById("ventana");
-});
 // 2 - Crear un algoritmo que invierta un string.
 //Función que pinta en el HTML
 function openReverseWizard() {
@@ -313,6 +427,9 @@ function openMaxFinder() {
       <p id="respuesta"></p>
     </div>`;
 }
+
+function maxFinder() {}
+
 //Codigo que maneja la ventana, los clicks y esas movidas
 document.addEventListener("DOMContentLoaded", function () {
   const icono = document.getElementById("MaxFinder-Boton");
@@ -391,6 +508,15 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   });
 });
+
+function factorialFactory(input) {
+  let factorial = 1;
+  for (let i = 2; i <= input; i++) {
+    factorial *= i;
+  }
+  return factorial;
+}
+console.log(factorialFactory(5));
 // 5 - Determinar si una palabra es un palíndromo.
 
 function openPalindromePal() {
@@ -453,56 +579,24 @@ function esPalindromo(palabra) {
 }
 
 // 6  -  Crear  un  programa  que  calcule  el  número  Fibonacci  en  la posición (n).
-function openFiboGen() {
-  return `
-  <div class="encabezado">
-      <div class="titulo">
-        <p>FiboGen</p>
-      </div>
-      <div class="botonera">
-        <button class="botoncito" id="cerrar">x</button>
-      </div>
-    </div>
-    <div class="cuerpo">
-      <form id="parImparForm">
-        <label for="inputOne"></label>
-        <input
-          type="text"
-          id="inputOne"
-          name="numero"
-          placeholder="Ingrese un número"
-        />
-        <button type="submit" id="botonEnviar">Enviar</button>
-      </form>
-      <p id="respuesta"></p>
-    </div>`;
+
+function fiboGen(input) {
+  if (input === 1) {
+    return 0;
+  } else if (input === 2) {
+    return 1;
+  } else {
+    let fibonazi = [];
+    fibonazi[0] = 0;
+    fibonazi[1] = 1;
+    for (let i = 2; i < input; i++) {
+      fibonazi[i] = fibonazi[i - 1] + fibonazi[i - 2];
+    }
+
+    return fibonazi[fibonazi.length - 1];
+  }
 }
-//Codigo que maneja la ventana, los clicks y esas movidas
-document.addEventListener("DOMContentLoaded", function () {
-  const icono = document.getElementById("FiboGen-Boton");
-  const menu = document.getElementById("contenedorIconos");
-  const ventana = document.getElementById("ventana");
-
-  icono.addEventListener("click", function () {
-    menu.classList.remove("contenedorIconosVisible");
-    menu.classList.add("contenedorIconos");
-    ventana.innerHTML = openFiboGen();
-
-    // Ahora añadimos los event listeners después de crear el contenido
-    document.getElementById("cerrar").addEventListener("click", function () {
-      ventana.innerHTML = "";
-    });
-
-    document
-      .getElementById("parImparForm")
-      .addEventListener("submit", function (event) {
-        event.preventDefault();
-        let valor = document.getElementById("inputOne").value;
-        let respuesta = document.getElementById("respuesta");
-        respuesta.innerHTML = parImpar(valor);
-      });
-  });
-});
+console.log(fiboGen(4));
 
 // 7 - Ordenar un array de números en orden ascendente (sin usar sort).
 function openSortItOut() {
@@ -606,6 +700,15 @@ function openLeapYearChecker() {
     </div>`;
 }
 // 9 - Escribir un algoritmo que determine si un año es bisiesto.
+
+function tempSwitch(input) {
+  // Un año es bisiesto si se puede dividir entre 4 y no se puede dividir entre 100, a no ser que se pueda dividir entre 400
+  if (input % 4 === 0 && (input % 100 !== 0 || input % 400 === 0)) {
+    return `El año ${input} es bisiesto`;
+  } else {
+    return `El año ${input} no es bisiesto`;
+  }
+}
 function openTempSwitch() {
   return `
   <div class="encabezado">

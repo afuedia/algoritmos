@@ -10,7 +10,7 @@
   <body>
     <section class="escritorio">
       <div class="fondoPantalla">
-        <div class="ventana" id="ventana"></div>
+        <div class="ventana" id="ventana" draggable="true"></div>
         <div class="contenedorIconos" id="contenedorIconos">
           <ul>
             <li>
@@ -208,5 +208,36 @@
     </section>-->
 
     <script type="module" src="/src/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/interactjs@1.10.0/dist/interact.min.js"></script>
+    <script>
+      const draggableElement = document.querySelector(".ventana");
+
+      interact(draggableElement).draggable({
+        inertia: true, // Movimiento suave después de soltar el objeto
+        modifiers: [
+          interact.modifiers.restrictRect({
+            restriction: "parent", // Limitar al contenedor padre
+            endOnly: false, // Aplicar la restricción durante todo el arrastre
+          }),
+        ],
+        listeners: {
+          start(event) {
+            console.log("Arrastre iniciado");
+          },
+          move(event) {
+            // Aquí manejamos la actualización de la posición
+            draggableElement.style.left = `${
+              event.pageX - draggableElement.offsetWidth / 2
+            }px`;
+            draggableElement.style.top = `${
+              event.pageY - draggableElement.offsetHeight / 2
+            }px`;
+          },
+          end(event) {
+            console.log("Arrastre terminado");
+          },
+        },
+      });
+    </script>
   </body>
 </html>
