@@ -4,11 +4,11 @@ Este proyecto corresponde a la **tarea final** del **módulo de JavaScript** del
 
 ## Descripción
 
-El objetivo de esta tarea fue demostrar los conocimientos adquiridos en el módulo de JavaScript mediante la implementación de una serie de algoritmos. Cada uno de los algoritmos se muestra y ejecuta en una interfaz gráfica interactiva, que simula el comportamiento de un sistema operativo, permitiendo al usuario ver los resultados de los algoritmos a través de ventanas que pueden ser movidas, minimizadas y cerradas.
+El objetivo de esta tarea fue demostrar los conocimientos adquiridos en el módulo de JavaScript mediante la implementación de una serie de algoritmos. Cada uno de los algoritmos se muestra y ejecuta en una interfaz gráfica interactiva, que simula el comportamiento de un sistema operativo, permitiendo al usuario ver los resultados de los algoritmos a través de ventanas que pueden ser movidas, ~~minimizadas~~ y cerradas.
 
 ### Características
 
-- **Interfaz de ventanas**: Se simuló una interfaz gráfica que imita un sistema operativo, con ventanas arrastrables, minimizables y cerrables.
+- **Interfaz de ventanas**: Se simuló una interfaz gráfica que imita un sistema operativo, con ventanas arrastrables, ~~minimizables~~ y cerrables.
 - **Algoritmos resueltos**: Se implementaron algoritmos clásicos de JavaScript y se mostraron visualmente dentro de las ventanas.
 - **Interactividad**: El usuario puede interactuar con las ventanas para ver cómo se resuelven los algoritmos y explorar los resultados.
 
